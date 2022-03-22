@@ -12,14 +12,20 @@ function ValidaCPF(strCPF){
       resultado[i] = strCPF[i] * (10-i);
       somatorio = somatorio + resultado[i];
   }
+
   for(i=0; i < 10; i++){
       resultado2[i] = strCPF[i] * (11-i);
       somatorio2 = somatorio2 + resultado2[i];
-
   }
-  
+
   final = (somatorio * 10)%11;
+  if(final >= 10){
+    final = 0;
+  }
   final2 = (somatorio2 * 10)%11;
+  if(final2 >= 10){
+    final2 = 0;
+  }
 
   if(final == strCPF[9]){
     if(final2 == strCPF[10]){
@@ -32,4 +38,4 @@ function ValidaCPF(strCPF){
       return "Invalido";
   }
 
-} 
+}
