@@ -1,0 +1,43 @@
+function ValidaCPF(strCPF){
+  //strCPF = "02762084806";
+  var i;
+  var resultado = [];
+  var resultado2 = [];
+  var somatorio = 0;
+  var somatorio2 = 0;
+  var final = 0;
+  var final2 = 0;
+  
+  for(i=0; i<9;i++){
+
+      resultado[i] = strCPF[i] * (10-i);
+      console.log(resultado[i]);
+      somatorio = somatorio + resultado[i];
+  }
+  for(i=0; i < 10; i++){
+      resultado2[i] = strCPF[i] * (11-i);
+      console.log(resultado2[i]);
+      somatorio2 = somatorio2 + resultado2[i];
+
+  }
+  
+  final = (somatorio * 10)%11;
+  console.log("Resultado 1 %d", final);
+  final2 = (somatorio2 * 10)%11;
+  console.log("Resultado 2 %d", final2);
+
+  if(final == strCPF[9]){
+    if(final2 == strCPF[10]){
+      console.log("Valido");
+      return "Valido";
+        
+    }else{
+      console.log("Invalido");
+      return "Invalido";      
+    }
+  }else{
+      console.log("Invalido");
+      return "Invalido";
+  }
+
+} 
